@@ -19,6 +19,9 @@ export default class Posts {
     edit(post) {
         return axios.put(`posts/${post.id}`, post)
     }
+    deletePost(post) {
+        return axios.delete(`posts/${post.id}`)
+    }
 
 }
 export const posts = new Posts ()

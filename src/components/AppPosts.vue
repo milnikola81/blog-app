@@ -14,6 +14,7 @@
             <router-link :to="{ name: 'edit-post', params: {id: post.id}}">
                 <button type="button" class="btn btn-warning">Edit post</button>
             </router-link>
+            <button type="button" class="btn btn-danger" @click="deletePost(post)">Delete post</button>
         </div>
     </div>
 </template>
@@ -25,6 +26,15 @@ export default {
     data () {
         return {
             posts: []
+        }
+    },
+    methods: {
+        deletePost(post) {
+            let index = this.posts.findIndex(single => single.id === post.id)
+            posts.deletePost(post)
+            .then((response) => {
+                this.posts.splice(index, 1)
+            })
         }
     },
     created () {
@@ -42,7 +52,7 @@ export default {
 }
 .post {
     margin-top: 2rem;
-    padding: 0.5rem;
+    padding: 1rem;
     background: #d9f2f0;
 }
 .post p {
