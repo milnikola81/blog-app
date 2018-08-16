@@ -10,9 +10,13 @@ export default class Posts {
     getAll() {
         return axios.get('posts')
     }
+    // `api/posts/{id}?filter={"include":["comments"]}` 
     get(id) {
-        return axios.get(`posts/${id}`)
+        return axios.get(`posts/${id}?filter={"include":["comments"]}`)
     }
+    // get(id) {
+    //     return axios.get(`posts/${id}`)
+    // }
     add(post) {
         return axios.post('posts', post)
     }
@@ -21,6 +25,10 @@ export default class Posts {
     }
     deletePost(post) {
         return axios.delete(`posts/${post.id}`)
+    }
+    addComment(comment, postId) {
+        //console.log(comment.text, post_id)
+        return axios.post(`posts/${postId}/comments`, comment)
     }
 
 }

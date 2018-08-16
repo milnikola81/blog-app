@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.vue';
 import AppPosts from './components/AppPosts.vue';
 import SinglePost from './components/SinglePost.vue';
 import AddPost from './components/AddPost.vue';
+import AddComment from './components/AddComment.vue';
 
 Vue.use(VueRouter);
 

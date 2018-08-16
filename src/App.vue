@@ -27,4 +27,7 @@ export default {
 button {
     margin-right: 2rem;
 }
+form {
+  padding: 1rem;
+}
 </style>
