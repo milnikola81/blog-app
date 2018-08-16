@@ -8,6 +8,12 @@
             </router-link>
             <p>{{post.createdAt}}</p>
             <p>{{post.text}}</p>
+            <router-link :to="{ name: 'single-post', params: {id: post.id}}">
+                <button type="button" class="btn btn-info">Show post</button>
+            </router-link>
+            <router-link :to="{ name: 'edit-post', params: {id: post.id}}">
+                <button type="button" class="btn btn-warning">Edit post</button>
+            </router-link>
         </div>
     </div>
 </template>

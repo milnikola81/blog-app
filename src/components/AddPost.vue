@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Add Post</h1>
+        <h1 v-if="(!this.$route.params.id)">Add post</h1>
+        <h1 v-else>Edit post</h1>
         <form id="addPostForm" @submit.prevent>
             <div class="form-group">
                 <label for="title">Title</label>
@@ -10,7 +11,8 @@
                 <label for="text">Text</label>
                 <textarea class="form-control" id="text" rows="10" v-model="newPost.text" required maxlength="300"></textarea>
             </div>
-            <button class="btn btn-primary" @click="addPost(newPost)" >Submit</button>
+            <button v-if="(this.$route.params.id)" class="btn btn-success" @click="edit(newPost)" >Done</button>  
+            <button v-else class="btn btn-success" @click="addPost(newPost)" >Submit</button>
             <input class="btn btn-danger" type="reset" value="Reset" />
         </form>
     </div>
@@ -32,6 +34,22 @@ export default {
                 this.$router.push('posts')
             })
             .catch(err => console.log(err))
+        },
+        edit(post) {
+            posts.edit(post)
+            .then((response) => {
+                this.$router.push('../posts')
+            })
+            .catch(err => console.log(err))
+        }
+    },
+    created () {
+        if(this.$route.params.id) {
+            posts.get(this.$route.params.id)
+            .then(response => (this.newPost = response.data));
+        }
+        else if(!this.$route.params.id) {
+            this.newPost = {};
         }
     }
     
@@ -43,9 +61,7 @@ form {
     width: 80%;
     margin: 0 auto;
 }
-button {
-    margin-right: 2rem;
-}
+
 </style>
 
 

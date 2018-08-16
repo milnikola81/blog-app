@@ -12,7 +12,8 @@ const routes = [
   {path: '/', redirect: '/posts'},
   {path: '/posts', component: AppPosts},
   {path: '/posts/:id', component: SinglePost, name: 'single-post'},
-  {path: '/add', component: AddPost}
+  {path: '/add', component: AddPost},
+  {path: '/edit/:id', component: AddPost, name: 'edit-post'},
   // {path: '/contacts/:id', component: Contacts, name: 'contact-details'}
 ];
 
