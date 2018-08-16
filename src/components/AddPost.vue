@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrapper">
         <h1 v-if="(!this.$route.params.id)">Add post</h1>
         <h1 v-else>Edit post</h1>
         <form id="addPostForm" @submit.prevent>

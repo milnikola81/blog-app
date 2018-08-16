@@ -24,10 +24,21 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.wrapper {
+  padding: 2rem;
+}
 button {
     margin-right: 2rem;
 }
 form {
   padding: 1rem;
+}
+.post {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #d9f2f0;
+}
+.post p {
+    text-align: left;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Create comment</h3>
+        <h5 style="text-align: left">Leave a comment</h5>
         <form id="addCommentForm" @submit.prevent>
             <div class="form-group">
                 <label for="text">Text</label>
@@ -28,6 +28,8 @@ export default {
     methods: {
         addComment(newComment, postId) {
             posts.addComment(newComment, postId)
+            this.$router.go(0)
+            // reloads same page
         }
     }
 }

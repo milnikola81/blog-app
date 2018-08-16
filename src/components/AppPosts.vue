@@ -1,11 +1,12 @@
 <template>
-    <div id="AppPosts">
+    <div class="wrapper">
         <h1>app posts</h1>
         <div class="post" v-for="(post, index) in posts" :key="index">
             <h1>{{post.title}}</h1>
             <router-link :to="{ name: 'single-post', params: {id: post.id}}">
                 Show post
             </router-link>
+            <p>Comments: {{post.comments.length}}</p>
             <p>{{post.createdAt}}</p>
             <p>{{post.text}}</p>
             <router-link :to="{ name: 'single-post', params: {id: post.id}}">
@@ -50,14 +51,7 @@ export default {
 #AppPosts {
     padding: 2rem;
 }
-.post {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #d9f2f0;
-}
-.post p {
-    text-align: left;
-}
+
 </style>
 
 
