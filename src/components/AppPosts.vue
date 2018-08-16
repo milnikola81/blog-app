@@ -36,6 +36,8 @@ export default {
 }
 .post {
     margin-top: 2rem;
+    padding: 0.5rem;
+    background: #d9f2f0;
 }
 .post p {
     text-align: left;
