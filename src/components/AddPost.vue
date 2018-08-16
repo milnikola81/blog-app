@@ -11,6 +11,7 @@
                 <textarea class="form-control" id="text" rows="10" v-model="newPost.text"></textarea>
             </div>
             <button class="btn btn-primary" @click="addPost(newPost)" >Submit</button>
+            <input class="btn btn-danger" type="reset" value="Reset" />
         </form>
     </div>
 </template>
@@ -41,6 +42,9 @@ export default {
 form {
     width: 80%;
     margin: 0 auto;
+}
+button {
+    margin-right: 2rem;
 }
 </style>
 
