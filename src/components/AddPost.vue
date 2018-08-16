@@ -4,11 +4,11 @@
         <form id="addPostForm" @submit.prevent>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Post title here..." v-model="newPost.title">
+                <input type="text" class="form-control" id="title" placeholder="Post title here..." v-model="newPost.title" required minlength="2">
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" rows="10" v-model="newPost.text"></textarea>
+                <textarea class="form-control" id="text" rows="10" v-model="newPost.text" required maxlength="300"></textarea>
             </div>
             <button class="btn btn-primary" @click="addPost(newPost)" >Submit</button>
             <input class="btn btn-danger" type="reset" value="Reset" />
