@@ -9,7 +9,10 @@
                 <p>{{comment.text}}</p>
                 <p style="color: #999999">Added {{comment.createdAt}}</p>
             </div>
-            <AddComment :post = 'post' />
+            <div class="row" style="margin-top: 2rem;">
+                <AddComment :post = 'post' />
+                <SuggestedPost />
+            </div>
         </div>
 
     </div>
@@ -19,11 +22,13 @@
 import { posts } from '../services/Posts'
 import AddComment from '../components/AddComment.vue'
 import { dateMixin } from '../mixins/DateMixin'
+import SuggestedPost from '../components/SuggestedPost.vue'
 
 export default {
     mixins: [dateMixin],
     components: {
-        AddComment
+        AddComment,
+        SuggestedPost
     },
     data () {
         return {

@@ -51,7 +51,11 @@ export default {
         else if(!this.$route.params.id) {
             this.newPost = {};
         }
-    }
+    },
+    beforeRouteLeave: function(to, from, next) {
+        this.newPost = {}
+        next()
+    } // resets the form and clears object when navigating from edit to add
     
 }
 </script>
