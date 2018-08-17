@@ -6,6 +6,7 @@ import AppPosts from './components/AppPosts.vue';
 import SinglePost from './components/SinglePost.vue';
 import AddPost from './components/AddPost.vue';
 import AddComment from './components/AddComment.vue';
+import SuggestedPost from './components/SuggestedPost.vue';
 
 Vue.use(VueRouter);
 

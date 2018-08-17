@@ -47,7 +47,13 @@ export default {
             this.post.createdAt = this.formatDate(this.post.createdAt)
         })
         .catch(err => console.log(err))
-    }
+    },
+    beforeRouteLeave (to, from, next) {
+        this.$router.go(0)
+    },
+    // beforeRouteEnter (to, from, next) {
+    //     console.log('enter')
+    // }
 }
 </script>
 
