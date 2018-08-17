@@ -17,11 +17,14 @@ export default {
 </script>
 
 <style>
+/* @import url('https://fonts.googleapis.com/css?family=Nunito+Sans'); */
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  /* background: #b3d4fc; */
   color: #2c3e50;
 }
 .wrapper {
@@ -35,8 +38,10 @@ form {
 }
 .post {
     margin-top: 2rem;
-    padding: 1rem;
-    background: #d9f2f0;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
 }
 .post p {
     text-align: left;

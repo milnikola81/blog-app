@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h5 style="text-align: left">Leave a comment</h5>
+        <h5 style="text-align: left; margin-top: 2rem; color: #999999"><em>Leave a comment...</em></h5>
         <form id="addCommentForm" @submit.prevent>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" rows="10" v-model="newComment.text"></textarea>
+                <textarea class="form-control" id="text" rows="5" v-model="newComment.text" required></textarea>
             </div> 
             <button class="btn btn-success" @click="addComment(newComment, post.id)" >Submit</button>
             <input class="btn btn-danger" type="reset" value="Reset" />
@@ -27,8 +27,13 @@ export default {
     },
     methods: {
         addComment(newComment, postId) {
-            posts.addComment(newComment, postId)
-            this.$router.go(0)
+            if(newComment.text != '') {
+                posts.addComment(newComment, postId)
+                .then((response) => {
+                    this.$router.go(0)
+                })
+                .catch(err => console.log(err))             
+            }
             // reloads same page
         }
     }
