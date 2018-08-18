@@ -11,7 +11,7 @@
             </div>
             <div class="row" style="margin-top: 2rem;">
                 <AddComment :post = 'post' />
-                <SuggestedPost />
+                <SuggestedPost @clicked="onClickChild"/>
             </div>
         </div>
 
@@ -48,12 +48,12 @@ export default {
         })
         .catch(err => console.log(err))
     },
-    beforeRouteLeave (to, from, next) {
-        this.$router.go(0)
-    },
-    // beforeRouteEnter (to, from, next) {
-    //     console.log('enter')
-    // }
+    methods: {
+        onClickChild(value) {
+            this.$router.push(`/posts/${value}`)
+            // pushes new id to url to force refresh of component
+        }
+    }
 }
 </script>
 
