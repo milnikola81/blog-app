@@ -9,7 +9,7 @@
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" rows="10" v-model="newPost.text" required maxlength="300"></textarea>
+                <tinymce class="form-control" name="text" id="text" rows="10" v-model="newPost.text" required maxlength="300"></tinymce>
             </div>
             <button v-if="(this.$route.params.id)" class="btn btn-success" @click="edit(newPost)" >Done</button>  
             <button v-else class="btn btn-success" @click="addPost(newPost)" >Submit</button>
@@ -29,6 +29,7 @@ export default {
     },
     methods: {
         addPost(newPost) {
+            this.newPost.text = tinyMCE.activeEditor.getBody().textContent
             posts.add(newPost)
             .then((response) => {
                 this.$router.push('posts')
@@ -36,12 +37,13 @@ export default {
             .catch(err => console.log(err))
         },
         edit(post) {
+            post.text = tinyMCE.activeEditor.getBody().textContent
             posts.edit(post)
             .then((response) => {
                 this.$router.push('../posts')
             })
             .catch(err => console.log(err))
-        }
+        },
     },
     created () {
         if(this.$route.params.id) {
@@ -51,12 +53,13 @@ export default {
         else if(!this.$route.params.id) {
             this.newPost = {};
         }
+
     },
     beforeRouteLeave: function(to, from, next) {
         this.newPost = {}
         next()
     } // resets the form and clears object when navigating from edit to add
-    
+
 }
 </script>
 

@@ -7,6 +7,7 @@ import SinglePost from './components/SinglePost.vue';
 import AddPost from './components/AddPost.vue';
 import AddComment from './components/AddComment.vue';
 import SuggestedPost from './components/SuggestedPost.vue';
+import tinymce from '@tinymce/tinymce-vue';
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,8 @@ const router = new VueRouter({
 });
 
 Vue.config.productionTip = false
+
+Vue.component("tinymce", tinymce)
 
 new Vue({
   render: h => h(App), router
